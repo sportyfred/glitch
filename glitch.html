@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Distance2D - Processing.js on iPhone</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<script src="iprocessing.js"></script>
+<script src="init.js"></script>
+</head>
+<style type="text/css">
+body {
+	margin: 0;
+}
+</style>
+<body>
+<div>
+<script type="application/processing">
+float max_distance;
+
+void setup() {
+  size(320, 460); 
+  smooth();
+  noStroke();
+  max_distance = dist(0, 0, width, height);
+}
+
+void draw() 
+{
+  background(51);
+
+  for(int i = 0; i <= width; i += 20) {
+    for(int j = 0; j <= width; j += 20) {
+      float size = dist(mouseX, mouseY, i, j);
+      size = size/max_distance * 66;
+      ellipse(i, j, size, size);
+    }
+  }
+}</script><canvas width="200" height="200"></canvas></div>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+<p>
+based on <a href="http://ejohn.org/apps/processing.js/">Processing.js</a> by <a href="http://ejohn.org/">John Resig</a><br />
+Example written by <a href="http://reas.com/">Casey Reas</a> and <a href="http://benfry.com/">Ben Fry</a>
+</p>
+</body>
